@@ -1,6 +1,7 @@
 package tests;
 
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import common.Datas;
@@ -30,6 +31,7 @@ public class RegistrationTest extends BaseTest{
 	}
 	
 	
+	
 	@Test
 	public void registrationTest() throws InterruptedException {
 		
@@ -37,8 +39,7 @@ public class RegistrationTest extends BaseTest{
 		rp.fillRegForm(title, firstName, lastName, dateOfBirth, email, password, countryCode, 
 				       phone, options, ehic, request, homeClinicName, homeClinicCity, 
 				       homeClinicCC, homeClinicPhone);
-		rp.isRegistered();
-
+		Assert.assertTrue(rp.isRegistered(), "Not Registred");
 	}
 
 }

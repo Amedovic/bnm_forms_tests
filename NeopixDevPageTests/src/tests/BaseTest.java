@@ -8,8 +8,8 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 import common.Datas;
 
@@ -22,12 +22,12 @@ public class BaseTest {
 	public String myPassword;
 	public String wrongPassword;
 
-	@BeforeClass
+	@BeforeMethod
 	public void setup() throws FileNotFoundException, IOException {
 		System.setProperty("webdriver.chrome.driver", "driver-lib\\chromedriver.exe");
 		this.driver = new ChromeDriver();
 		this.selectors =  new Properties();
-		this.waiter = new WebDriverWait(driver, 15);
+		this.waiter = new WebDriverWait(driver, 5);
 		selectors.load(new FileInputStream("config/page.properties"));
 		driver.manage().window().maximize();
 		myEmail = Datas.MY_EMAIL;
@@ -35,7 +35,7 @@ public class BaseTest {
 		wrongPassword = Datas.WRONG_PASSWORD;
 	}
 
-	@AfterClass
+	@AfterMethod
 	public void afterClass() {
 		this.driver.close();
 	}

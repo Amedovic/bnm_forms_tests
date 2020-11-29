@@ -244,15 +244,9 @@ public class RegistrationPage {
 		this.setClinicCountryCode(hccc);
 		this.setClinicPhone(clinicPhone);
 		jse.executeScript("scroll(0,2000);");
-		//this.checkInfoBox();
 		this.agreeToTerms();
 		this.register();
-//		jse.executeScript("scroll(0,700);");
-//		this.next();
-//		this.next();
-//		jse.executeScript("scroll(0,2000);");
-//		this.register();
-   }
+}
 	
 	public boolean isRegistered() {
 		try {
